@@ -165,4 +165,22 @@ def compute_capacity_from_headcount(req: HeadcountScenarioRequest):
 
 @app.get("/api/health")
 def health():
-    return {"status": "ok", "model": "claude-sonnet-4-20250514"}
+    key = os.getenv("ANTHROPIC_API_KEY", "")
+    return {
+        "status": "ok",
+        "model": os.getenv("HEADCOUNT_MODEL", "claude-haiku-4-5-20251001"),
+        "api_key_set": bool(key),
+        "api_key_prefix": key[:12] + "..." if key else "MISSING",
+    }
+
+
+@app.get("/api/debug-ask")
+def debug_ask():
+    """Test the AI agent creation and a simple ask — returns error details."""
+    try:
+        agent = HeadcountAgent()
+        result = agent.ask("How many agents in EMEA?")
+        return {"status": "ok", "response": result["response"][:200]}
+    except Exception as e:
+        import traceback
+        return {"status": "error", "error": f"{type(e).__name__}: {str(e)}", "trace": traceback.format_exc()}
