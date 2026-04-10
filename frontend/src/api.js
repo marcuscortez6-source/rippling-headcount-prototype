@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_BASE || 'http://localhost:8000'
+const BASE_URL = import.meta.env.VITE_API_BASE || 'https://rippling-headcount-prototype-production.up.railway.app'
 
 export function generateSessionId() {
   return crypto.randomUUID()
