@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Impact Analysis | Support Ops</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#98f5c7",
+                        "on-primary-fixed-variant": "#4500d8",
+                        "primary-fixed": "#e6deff",
+                        "tertiary": "#006041",
+                        "on-primary-fixed": "#1b0063",
+                        "surface-container": "#e6eeff",
+                        "background": "#f8f9ff",
+                        "surface-tint": "#5e35f1",
+                        "secondary-fixed": "#d3e3ff",
+                        "on-surface": "#0b1c30",
+                        "primary": "#5323e6",
+                        "surface-container-high": "#dde9ff",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#107b55",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "on-primary-container": "#f1ebff",
+                        "on-secondary-container": "#56657d",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#213146",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#d3e3ff",
+                        "secondary-container": "#d3e3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#002114",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#ebf1ff",
+                        "secondary": "#505f76",
+                        "tertiary-fixed-dim": "#7cd9ac",
+                        "on-surface-variant": "#484556",
+                        "surface-variant": "#d3e3ff",
+                        "primary-fixed-dim": "#c9beff",
+                        "surface-bright": "#f8f9ff",
+                        "inverse-primary": "#c9beff",
+                        "on-tertiary-fixed-variant": "#005237",
+                        "surface-dim": "#cbdbf6",
+                        "outline": "#797588",
+                        "on-tertiary-container": "#b0ffd6",
+                        "primary-container": "#6c47ff",
+                        "on-secondary-fixed-variant": "#38485e",
+                        "surface": "#f8f9ff",
+                        "outline-variant": "#c9c3d9",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#b7c7e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; color: #0b1c30; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .gradient-primary { background: linear-gradient(135deg, #5323e6 0%, #6c47ff 100%); }
+    </style>
+</head>
+<body class="bg-background">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-[#f8f9ff] flex flex-col py-8 z-50">
+<div class="px-8 mb-10">
+<h1 class="font-black text-xl tracking-tighter text-[#0b1c30]">Support Ops</h1>
+<p class="text-xs text-on-surface-variant font-medium tracking-tight mt-1">Predictive Architect</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-8 py-3 text-[#484556] hover:bg-[#eff4ff] transition-colors duration-200 font-['Inter'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+            Dashboard
+        </a>
+<a class="flex items-center px-8 py-3 bg-[#d3e3ff] text-[#0b1c30] rounded-r-full font-bold font-['Inter'] tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="analytics">analytics</span>
+            Impact Analysis
+        </a>
+<a class="flex items-center px-8 py-3 text-[#484556] hover:bg-[#eff4ff] transition-colors duration-200 font-['Inter'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="group">group</span>
+            Headcount
+        </a>
+<a class="flex items-center px-8 py-3 text-[#484556] hover:bg-[#eff4ff] transition-colors duration-200 font-['Inter'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="query_stats">query_stats</span>
+            Scenario Planning
+        </a>
+<a class="flex items-center px-8 py-3 text-[#484556] hover:bg-[#eff4ff] transition-colors duration-200 font-['Inter'] font-medium tracking-tight text-sm" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+            Operations
+        </a>
+</nav>
+<div class="px-8 pt-8 border-t border-outline-variant/10">
+<button class="w-full py-3 rounded-xl gradient-primary text-white font-bold text-sm transition-transform scale-95 active:scale-90">
+            New Analysis
+        </button>
+</div>
+<footer class="mt-auto space-y-1">
+<a class="flex items-center px-8 py-2 text-[#484556] hover:bg-[#eff4ff] transition-colors duration-200 text-xs font-medium" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="help_outline">help_outline</span>
+            Help
+        </a>
+<a class="flex items-center px-8 py-2 text-[#484556] hover:bg-[#eff4ff] transition-colors duration-200 text-xs font-medium" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="lock">lock</span>
+            Privacy
+        </a>
+</footer>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 flex justify-between items-center px-12 h-20 bg-[#f8f9ff]/70 backdrop-blur-xl shadow-sm shadow-[#0b1c30]/5">
+<div class="flex items-center gap-8">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/60" data-icon="search">search</span>
+<input class="bg-surface-container-low border-none rounded-full py-2 pl-12 pr-6 text-sm w-80 focus:ring-2 focus:ring-primary/20" placeholder="Global Analysis Search" type="text"/>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-[#484556] hover:text-[#5323e6] transition-all font-semibold tracking-tighter text-lg" href="#">Overview</a>
+<a class="text-[#5323e6] border-b-2 border-[#5323e6] pb-1 font-semibold tracking-tighter text-lg" href="#">Scenarios</a>
+<a class="text-[#484556] hover:text-[#5323e6] transition-all font-semibold tracking-tighter text-lg" href="#">Forecasts</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+<div class="h-8 w-px bg-outline-variant/30 mx-2"></div>
+<button class="px-6 py-2 rounded-lg bg-surface-container-highest text-on-surface font-semibold text-sm hover:opacity-80 transition-all">Export</button>
+<button class="px-6 py-2 rounded-lg gradient-primary text-white font-semibold text-sm hover:opacity-90 transition-all">Execute Plan</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 p-12 min-h-screen">
+<!-- Breadcrumb & Toggle Header -->
+<div class="flex justify-between items-end mb-12">
+<div>
+<nav class="flex text-on-surface-variant text-xs mb-2 font-medium tracking-widest uppercase">
+<span>Dashboard</span>
+<span class="mx-2 text-outline-variant">/</span>
+<span class="text-on-surface">Impact Analysis</span>
+</nav>
+<h2 class="text-4xl font-extrabold tracking-tighter">Impact Workspace</h2>
+</div>
+<div class="bg-surface-container-low p-1 rounded-xl flex">
+<button class="px-6 py-2 rounded-lg bg-white shadow-sm text-sm font-bold text-primary">Global View</button>
+<button class="px-6 py-2 rounded-lg text-sm font-medium text-on-surface-variant hover:text-on-surface">Regional View</button>
+</div>
+</div>
+<!-- Three Column Grid - Reorganized for side-by-side display -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 items-start">
+<!-- Column 1: Baseline Scenario -->
+<section class="h-full">
+<div class="p-8 rounded-3xl bg-surface-container-low relative overflow-hidden group h-full">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="analytics">analytics</span>
+</div>
+<div class="flex items-center gap-3 mb-8">
+<div class="w-2 h-8 bg-on-surface-variant rounded-full"></div>
+<h3 class="text-xl font-bold tracking-tight">Baseline Scenario</h3>
+<span class="ml-auto text-[10px] font-bold bg-outline-variant/20 px-2 py-1 rounded tracking-tighter uppercase">Read-only</span>
+</div>
+<div class="space-y-6">
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Total Headcount</label>
+<p class="mono text-3xl font-medium">1,240</p>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Cost Impact (USD)</label>
+<p class="mono text-3xl font-medium">$42.8M</p>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Utilization Rate</label>
+<p class="mono text-3xl font-medium">84.2%</p>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Revenue per Employee</label>
+<p class="mono text-3xl font-medium">$345k</p>
+</div>
+</div>
+<div class="mt-10 pt-8 border-t border-outline-variant/20 space-y-4">
+<div class="flex justify-between items-center py-2 text-sm font-semibold opacity-60">
+<span>North America</span>
+<span class="mono">450 | $18.2M</span>
+</div>
+<div class="flex justify-between items-center py-2 text-sm font-semibold opacity-60 border-t border-outline-variant/10">
+<span>EMEA</span>
+<span class="mono">320 | $12.1M</span>
+</div>
+<div class="flex justify-between items-center py-2 text-sm font-semibold opacity-60 border-t border-outline-variant/10">
+<span>APAC</span>
+<span class="mono">280 | $7.8M</span>
+</div>
+<div class="flex justify-between items-center py-2 text-sm font-semibold opacity-60 border-t border-outline-variant/10">
+<span>LATAM</span>
+<span class="mono">190 | $4.7M</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Column 2: Scenario 1 -->
+<section class="h-full">
+<div class="p-8 rounded-3xl bg-surface-container-highest shadow-sm border border-primary/5 h-full flex flex-col">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-2 h-8 bg-primary rounded-full"></div>
+<h3 class="text-xl font-bold tracking-tight">Scenario 1</h3>
+<span class="ml-auto text-[10px] font-bold bg-primary-fixed text-primary px-2 py-1 rounded tracking-tighter uppercase">Drafting</span>
+</div>
+<div class="space-y-6">
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Total Headcount</label>
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-primary focus:ring-0 mono text-3xl font-medium p-0 pb-1" type="text" value="1,350"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Cost Impact (USD)</label>
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-primary focus:ring-0 mono text-3xl font-medium p-0 pb-1" type="text" value="48.2"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Utilization Rate</label>
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-primary focus:ring-0 mono text-3xl font-medium p-0 pb-1" type="text" value="79.1"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Revenue per Employee</label>
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-primary focus:ring-0 mono text-3xl font-medium p-0 pb-1" type="text" value="322"/>
+</div>
+</div>
+<!-- Accordions -->
+<div class="mt-10 pt-8 border-t border-outline-variant/20 space-y-2 flex-1">
+<details class="group">
+<summary class="flex justify-between items-center py-2 cursor-pointer list-none">
+<span class="text-sm font-bold">North America</span>
+<div class="flex items-center gap-3">
+<span class="mono text-xs opacity-70">510 | $21.4M</span>
+<span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</div>
+</summary>
+<div class="py-4 px-4 bg-surface-container-low rounded-xl mb-2">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-[9px] uppercase font-bold text-on-surface-variant">HC</label>
+<input class="w-full bg-transparent border-none p-0 mono text-sm font-bold focus:ring-0" type="text" value="510"/>
+</div>
+<div class="space-y-1">
+<label class="text-[9px] uppercase font-bold text-on-surface-variant">Cost</label>
+<input class="w-full bg-transparent border-none p-0 mono text-sm font-bold focus:ring-0" type="text" value="21.4"/>
+</div>
+</div>
+</div>
+</details>
+<details class="group border-t border-outline-variant/10">
+<summary class="flex justify-between items-center py-2 cursor-pointer list-none">
+<span class="text-sm font-bold">EMEA</span>
+<div class="flex items-center gap-3">
+<span class="mono text-xs opacity-70">340 | $13.2M</span>
+<span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</div>
+</summary>
+<div class="py-4 px-4 bg-surface-container-low rounded-xl mb-2">
+<p class="text-xs text-on-surface-variant">Regional adjustment active.</p>
+</div>
+</details>
+<details class="group border-t border-outline-variant/10">
+<summary class="flex justify-between items-center py-2 cursor-pointer list-none">
+<span class="text-sm font-bold">APAC</span>
+<div class="flex items-center gap-3">
+<span class="mono text-xs opacity-70">310 | $8.9M</span>
+<span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</div>
+</summary>
+</details>
+<details class="group border-t border-outline-variant/10">
+<summary class="flex justify-between items-center py-2 cursor-pointer list-none">
+<span class="text-sm font-bold">LATAM</span>
+<div class="flex items-center gap-3">
+<span class="mono text-xs opacity-70">190 | $4.7M</span>
+<span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</div>
+</summary>
+</details>
+</div>
+<button class="w-full mt-10 py-4 gradient-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                    Recalculate Scenario 1
+                </button>
+</div>
+</section>
+<!-- Column 3: Scenario 2 -->
+<section class="h-full">
+<div class="p-8 rounded-3xl bg-surface-container-highest shadow-sm border border-primary/5 h-full flex flex-col">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-2 h-8 bg-primary-container rounded-full"></div>
+<h3 class="text-xl font-bold tracking-tight">Scenario 2</h3>
+<span class="ml-auto text-[10px] font-bold bg-tertiary-container text-white px-2 py-1 rounded tracking-tighter uppercase">Optimized</span>
+</div>
+<div class="space-y-6">
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Total Headcount</label>
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-primary focus:ring-0 mono text-3xl font-medium p-0 pb-1" type="text" value="1,150"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Cost Impact (USD)</label>
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-primary focus:ring-0 mono text-3xl font-medium p-0 pb-1" type="text" value="38.5"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Utilization Rate</label>
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-primary focus:ring-0 mono text-3xl font-medium p-0 pb-1" type="text" value="92.4"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Revenue per Employee</label>
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant focus:border-primary focus:ring-0 mono text-3xl font-medium p-0 pb-1" type="text" value="385"/>
+</div>
+</div>
+<!-- Accordions -->
+<div class="mt-10 pt-8 border-t border-outline-variant/20 space-y-2 flex-1">
+<details class="group">
+<summary class="flex justify-between items-center py-2 cursor-pointer list-none">
+<span class="text-sm font-bold">North America</span>
+<div class="flex items-center gap-3">
+<span class="mono text-xs opacity-70">410 | $16.5M</span>
+<span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</div>
+</summary>
+</details>
+<details class="group border-t border-outline-variant/10">
+<summary class="flex justify-between items-center py-2 cursor-pointer list-none">
+<span class="text-sm font-bold">EMEA</span>
+<div class="flex items-center gap-3">
+<span class="mono text-xs opacity-70">300 | $11.2M</span>
+<span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</div>
+</summary>
+</details>
+<details class="group border-t border-outline-variant/10">
+<summary class="flex justify-between items-center py-2 cursor-pointer list-none">
+<span class="text-sm font-bold">APAC</span>
+<div class="flex items-center gap-3">
+<span class="mono text-xs opacity-70">260 | $6.9M</span>
+<span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</div>
+</summary>
+</details>
+<details class="group border-t border-outline-variant/10">
+<summary class="flex justify-between items-center py-2 cursor-pointer list-none">
+<span class="text-sm font-bold">LATAM</span>
+<div class="flex items-center gap-3">
+<span class="mono text-xs opacity-70">180 | $3.9M</span>
+<span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180" data-icon="expand_more">expand_more</span>
+</div>
+</summary>
+</details>
+</div>
+<button class="w-full mt-10 py-4 gradient-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                    Recalculate Scenario 2
+                </button>
+</div>
+</section>
+</div>
+<!-- Total Delta Summary Row -->
+<section class="bg-on-surface text-white p-10 rounded-[2rem] shadow-2xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] -mr-32 -mt-32"></div>
+<div class="flex items-center gap-4 mb-8">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="query_stats">query_stats</span>
+<h3 class="text-2xl font-bold tracking-tight">Total Delta Summary</h3>
+<p class="text-outline-variant text-sm font-medium ml-4">Baseline Comparison Analysis</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- S1 Delta -->
+<div class="p-8 rounded-2xl bg-white/5 border border-white/10 flex flex-col gap-6 backdrop-blur-sm">
+<h4 class="text-sm font-black uppercase tracking-widest opacity-60">Scenario 1 vs Baseline</h4>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="text-xs font-bold text-outline-variant mb-1 uppercase">Headcount Shift</p>
+<p class="mono text-2xl font-bold text-error">+110</p>
+</div>
+<div>
+<p class="text-xs font-bold text-outline-variant mb-1 uppercase">Cost Delta</p>
+<p class="mono text-2xl font-bold text-error">+$5.4M</p>
+</div>
+<div>
+<p class="text-xs font-bold text-outline-variant mb-1 uppercase">Efficiency Delta</p>
+<p class="mono text-2xl font-bold text-error">-5.1%</p>
+</div>
+<div>
+<p class="text-xs font-bold text-outline-variant mb-1 uppercase">ROI Forecast</p>
+<p class="mono text-2xl font-bold text-tertiary-fixed-dim">+$120k</p>
+</div>
+</div>
+</div>
+<!-- S2 Delta -->
+<div class="p-8 rounded-2xl bg-white/5 border border-white/10 flex flex-col gap-6 backdrop-blur-sm">
+<h4 class="text-sm font-black uppercase tracking-widest opacity-60">Scenario 2 vs Baseline</h4>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<p class="text-xs font-bold text-outline-variant mb-1 uppercase">Headcount Shift</p>
+<p class="mono text-2xl font-bold text-tertiary-fixed-dim">-90</p>
+</div>
+<div>
+<p class="text-xs font-bold text-outline-variant mb-1 uppercase">Cost Delta</p>
+<p class="mono text-2xl font-bold text-tertiary-fixed-dim">-$4.3M</p>
+</div>
+<div>
+<p class="text-xs font-bold text-outline-variant mb-1 uppercase">Efficiency Delta</p>
+<p class="mono text-2xl font-bold text-tertiary-fixed-dim">+8.2%</p>
+</div>
+<div>
+<p class="text-xs font-bold text-outline-variant mb-1 uppercase">ROI Forecast</p>
+<p class="mono text-2xl font-bold text-tertiary-fixed-dim">+$890k</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-10 flex justify-end gap-4">
+<button class="px-8 py-3 rounded-full border border-white/20 text-white font-bold text-sm hover:bg-white/10 transition-all">Download Report</button>
+<button class="px-8 py-3 rounded-full bg-primary-container text-white font-bold text-sm hover:shadow-xl hover:shadow-primary/30 transition-all">Promote Scenario 2</button>
+</div>
+</section>
+</main>
+</body></html>

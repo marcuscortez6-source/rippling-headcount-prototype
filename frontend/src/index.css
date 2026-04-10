@@ -1,0 +1,180 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-headline: 'Manrope', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Plum / Berry sidebar */
+  --color-plum: #4A0039;
+  --color-plum-deep: #38202A;
+  --color-plum-primary: #7A005D;
+  --color-plum-hover: #9F1E7A;
+  --color-plum-muted: #C4A7B6;
+
+  /* Rippling Gold accents */
+  --color-gold: #FDB71C;
+  --color-gold-hover: #F59701;
+
+  /* Sand / Cream surfaces */
+  --color-sand: #F2EEEB;
+  --color-cream: #F5F3EE;
+  --color-sand-hover: #E1D8D2;
+  --color-surface: #fcf9f8;
+
+  /* Text */
+  --color-body: #292929;
+  --color-body-muted: #514533;
+
+  /* Status */
+  --color-success: #4CAF50;
+  --color-success-bg: #F1F8E9;
+  --color-success-deep: #107b55;
+  --color-warning: #F9A825;
+  --color-warning-bg: #FFFDE7;
+  --color-danger: #EF5350;
+  --color-danger-bg: #FFF5F5;
+
+  /* Legacy purple (for chat confidence badges) */
+  --color-purple: #5323e6;
+  --color-purple-light: #6c47ff;
+  --color-purple-bg: #e6deff;
+
+  /* Outline */
+  --color-outline: #837560;
+  --color-outline-variant: #d5c4ac;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Markdown response styling */
+.chat-markdown {
+  color: #292929;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.chat-markdown p {
+  margin: 0.5rem 0;
+}
+
+.chat-markdown p:first-child {
+  margin-top: 0;
+}
+
+.chat-markdown p:last-child {
+  margin-bottom: 0;
+}
+
+.chat-markdown strong {
+  font-weight: 700;
+  color: #292929;
+}
+
+.chat-markdown h1, .chat-markdown h2, .chat-markdown h3 {
+  font-weight: 700;
+  color: #292929;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.chat-markdown h1 { font-size: 1.25rem; }
+.chat-markdown h2 { font-size: 1.125rem; }
+.chat-markdown h3 { font-size: 1rem; }
+
+.chat-markdown ul, .chat-markdown ol {
+  margin: 0.5rem 0;
+  padding-left: 1.25rem;
+}
+
+.chat-markdown ul {
+  list-style-type: disc;
+}
+
+.chat-markdown ol {
+  list-style-type: decimal;
+}
+
+.chat-markdown li {
+  margin: 0.25rem 0;
+  padding-left: 0.25rem;
+  line-height: 1.6;
+}
+
+.chat-markdown li > p {
+  margin: 0;
+}
+
+.chat-markdown li::marker {
+  color: #837560;
+}
+
+.chat-markdown code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+  background: #F2EEEB;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  color: #4A0039;
+}
+
+.chat-markdown pre {
+  background: #F2EEEB;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+  overflow-x: auto;
+}
+
+.chat-markdown pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.8125rem;
+  color: #292929;
+}
+
+.chat-markdown hr {
+  border: none;
+  border-top: 1px solid #d5c4ac;
+  margin: 1rem 0;
+  opacity: 0.3;
+}
+
+.chat-markdown blockquote {
+  border-left: 3px solid #4A0039;
+  padding-left: 1rem;
+  margin: 0.75rem 0;
+  color: #514533;
+  font-style: italic;
+}
+
+.chat-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+  margin: 0.75rem 0;
+}
+
+.chat-markdown th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #837560;
+  padding: 0.5rem;
+  border-bottom: 1px solid #d5c4ac;
+}
+
+.chat-markdown td {
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(213, 196, 172, 0.2);
+  font-family: 'JetBrains Mono', monospace;
+}

@@ -1,0 +1,29 @@
+section,region,step,description,formula,result,unit
+CAPACITY,NAMER,1,Total available hours,100 agents × 160 hrs/month,16000,hours
+CAPACITY,NAMER,2,After 20% shrinkage,"16,000 × (1 - 0.20)",12800,hours
+CAPACITY,NAMER,3,At 85% utilization,"12,800 × 0.85",10880,hours
+CAPACITY,NAMER,4,Convert to minutes,"10,880 × 60",652800,minutes
+CAPACITY,NAMER,5,Divide by AHT,"652,800 ÷ 15",43520,tickets
+CAPACITY,EMEA,1,Total available hours,80 agents × 160 hrs/month,12800,hours
+CAPACITY,EMEA,2,After 20% shrinkage,"12,800 × (1 - 0.20)",10240,hours
+CAPACITY,EMEA,3,At 85% utilization,"10,240 × 0.85",8704,hours
+CAPACITY,EMEA,4,Convert to minutes,"8,704 × 60",522240,minutes
+CAPACITY,EMEA,5,Divide by AHT,"522,240 ÷ 12",43520,tickets
+CAPACITY,APAC,1,Total available hours,50 agents × 160 hrs/month,8000,hours
+CAPACITY,APAC,2,After 20% shrinkage,"8,000 × (1 - 0.20)",6400,hours
+CAPACITY,APAC,3,At 85% utilization,"6,400 × 0.85",5440,hours
+CAPACITY,APAC,4,Convert to minutes,"5,440 × 60",326400,minutes
+CAPACITY,APAC,5,Divide by AHT,"326,400 ÷ 10",32640,tickets
+WHATIF,APAC,1,New volume,"25,000 × 1.30",32500,tickets
+WHATIF,APAC,2,New AHT,10 + 2,12,minutes
+WHATIF,APAC,3,Required minutes,"32,500 × 12",390000,minutes
+WHATIF,APAC,4,Minutes per agent,160 × 60 × 0.80 × 0.85,6528,minutes/agent
+WHATIF,APAC,5,Required agents (raw),"390,000 ÷ 6,528",59.7426,agents (raw)
+WHATIF,APAC,6,Required agents (ceiling),ceil(59.7426),60,agents
+WHATIF,APAC,7,Net-new needed,60 - 50,10,agents
+UTILIZATION,NAMER,1,Projected vs capacity,"40,000 / 43,520",91.9%,utilization implied
+UTILIZATION,NAMER,2,Headroom,"43,520 - 40,000",3520,tickets
+UTILIZATION,EMEA,1,Projected vs capacity,"35,000 / 43,520",80.4%,utilization implied
+UTILIZATION,EMEA,2,Headroom,"43,520 - 35,000",8520,tickets
+UTILIZATION,APAC,1,Projected vs capacity,"25,000 / 32,640",76.6%,utilization implied
+UTILIZATION,APAC,2,Headroom,"32,640 - 25,000",7640,tickets

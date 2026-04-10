@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#98f5c7",
+                        "on-secondary-container": "#56657d",
+                        "inverse-surface": "#213146",
+                        "primary-fixed": "#e6deff",
+                        "surface-tint": "#5e35f1",
+                        "on-tertiary-fixed": "#002114",
+                        "on-surface": "#0b1c30",
+                        "surface-variant": "#d3e3ff",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9ff",
+                        "on-primary-container": "#f1ebff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "on-tertiary-fixed-variant": "#005237",
+                        "surface-container-high": "#dde9ff",
+                        "on-primary-fixed-variant": "#4500d8",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#7cd9ac",
+                        "outline": "#797588",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#d3e3ff",
+                        "primary-fixed-dim": "#c9beff",
+                        "secondary-fixed-dim": "#b7c7e2",
+                        "on-surface-variant": "#484556",
+                        "inverse-primary": "#c9beff",
+                        "on-tertiary-container": "#b0ffd6",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-container": "#6c47ff",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "inverse-on-surface": "#ebf1ff",
+                        "tertiary": "#006041",
+                        "secondary-container": "#d3e3ff",
+                        "surface-bright": "#f8f9ff",
+                        "primary": "#5323e6",
+                        "surface-dim": "#cbdbf6",
+                        "on-primary-fixed": "#1b0063",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#38485e",
+                        "tertiary-container": "#107b55",
+                        "secondary": "#505f76",
+                        "outline-variant": "#c9c3d9",
+                        "secondary-fixed": "#d3e3ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "background": "#f8f9ff",
+                        "surface-container": "#e6eeff"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .purple-gradient { background: linear-gradient(135deg, #5323e6 0%, #6c47ff 100%); }
+        .glass-panel { background: rgba(230, 238, 255, 0.7); backdrop-filter: blur(12px); }
+    </style>
+</head>
+<body class="text-on-surface overflow-x-hidden">
+<!-- SideNavBar Shell -->
+<nav class="fixed left-0 top-0 h-screen w-64 bg-slate-50 flex flex-col py-8 px-4 z-50">
+<div class="mb-10 px-2">
+<h1 class="text-xl font-black text-slate-900 tracking-tight">Predictive Architect</h1>
+<p class="text-xs text-on-surface-variant font-medium mt-1">Support Operations</p>
+</div>
+<div class="flex-1 space-y-2">
+<!-- Nav Items based on JSON mapping -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-indigo-700 font-bold border-r-4 border-indigo-600 bg-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 font-medium hover:bg-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span class="text-sm">Headcount Forecast</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 font-medium hover:bg-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group_work">group_work</span>
+<span class="text-sm">Organization</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 font-medium hover:bg-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span class="text-sm">Hiring Plan</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 font-medium hover:bg-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</div>
+<div class="pt-6 border-t border-slate-200 space-y-2">
+<button class="w-full purple-gradient text-white py-3 rounded-lg font-bold text-sm mb-4 active:scale-95 transition-transform">
+                New Scenario
+            </button>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 font-medium hover:bg-slate-200 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-sm">Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 font-medium hover:bg-slate-200 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-sm">Release Notes</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-slate-50/70 backdrop-blur-xl flex items-center justify-between px-8 z-40">
+<div class="flex items-center gap-4">
+<div class="flex items-center text-[10px] font-bold tracking-widest uppercase text-slate-400 gap-2">
+<span>Dashboard</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-900">Impact Analysis</span>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<nav class="hidden md:flex gap-6">
+<a class="text-[10px] tracking-widest uppercase font-bold text-slate-400 hover:text-indigo-600 transition-colors" href="#">Q3 Planning</a>
+<a class="text-[10px] tracking-widest uppercase font-bold text-slate-400 hover:text-indigo-600 transition-colors" href="#">Draft Alpha</a>
+<a class="text-[10px] tracking-widest uppercase font-bold text-slate-400 hover:text-indigo-600 transition-colors" href="#">Forecast</a>
+</nav>
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined hover:text-indigo-600 cursor-pointer">notifications</span>
+<span class="material-symbols-outlined hover:text-indigo-600 cursor-pointer">history</span>
+<button class="bg-indigo-600 text-white px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-indigo-700 transition-colors">Commit Plan</button>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-slate-100"></div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 mt-16 p-8 min-h-screen">
+<!-- Info Banner -->
+<div class="mb-8 flex items-center justify-between p-6 bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+</div>
+<p class="text-on-surface-variant font-medium">Access this view from any dashboard chart, or customize scenarios manually below</p>
+</div>
+<!-- Segmented Toggle -->
+<div class="flex bg-surface-container-high p-1 rounded-full">
+<button class="px-6 py-1.5 rounded-full text-xs font-bold bg-white text-primary shadow-sm">Global View</button>
+<button class="px-6 py-1.5 rounded-full text-xs font-bold text-on-surface-variant hover:text-on-surface">Regional View</button>
+</div>
+</div>
+<!-- Scenarios Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+<!-- Baseline Scenario (Read Only) -->
+<div class="bg-surface-container-low rounded-3xl p-8 flex flex-col">
+<div class="mb-8">
+<span class="text-[10px] font-black tracking-[0.2em] text-on-surface-variant uppercase">Baseline · Current State</span>
+<h2 class="text-3xl font-black mt-2 text-on-surface">Status Quo</h2>
+</div>
+<div class="space-y-6 flex-1">
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Total Headcount</label>
+<div class="text-4xl font-mono font-semibold text-on-surface">342</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Annual Cost</label>
+<div class="text-2xl font-mono font-semibold text-on-surface">$28.4M</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Utilization</label>
+<div class="text-xl font-mono font-semibold text-on-surface">87.2%</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Rev/Employee</label>
+<div class="text-xl font-mono font-semibold text-on-surface">$142K</div>
+</div>
+</div>
+<div class="flex flex-col gap-1 pt-4">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Avg Time to Fill</label>
+<div class="text-xl font-mono font-semibold text-on-surface">34 days</div>
+</div>
+</div>
+<!-- Regional Breakdown (Baseline) -->
+<div class="mt-12 space-y-2">
+<div class="bg-surface-container p-4 rounded-xl">
+<div class="flex items-center justify-between cursor-pointer">
+<span class="font-bold text-sm">North America</span>
+<span class="material-symbols-outlined text-sm">expand_less</span>
+</div>
+<div class="mt-4 grid grid-cols-3 gap-2 text-center border-t border-outline-variant/10 pt-4">
+<div><p class="text-[8px] font-bold text-on-surface-variant uppercase">HC</p><p class="font-mono font-bold">180</p></div>
+<div><p class="text-[8px] font-bold text-on-surface-variant uppercase">Cost</p><p class="font-mono font-bold">$16M</p></div>
+<div><p class="text-[8px] font-bold text-on-surface-variant uppercase">Util</p><p class="font-mono font-bold">89%</p></div>
+</div>
+</div>
+<div class="bg-surface-container p-4 rounded-xl flex items-center justify-between opacity-60">
+<span class="font-bold text-sm">EMEA</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+<div class="bg-surface-container p-4 rounded-xl flex items-center justify-between opacity-60">
+<span class="font-bold text-sm">APAC</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Scenario 1 (Editable) -->
+<div class="bg-surface-container-highest rounded-3xl p-8 flex flex-col shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="mb-8">
+<span class="text-[10px] font-black tracking-[0.2em] text-primary uppercase">Scenario 1 · Growth Plan</span>
+<h2 class="text-3xl font-black mt-2 text-on-surface">Aggressive Expansion</h2>
+</div>
+<div class="space-y-6 flex-1">
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Total Headcount</label>
+<input class="bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 font-mono text-3xl font-semibold p-1" type="text" value="380"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Annual Cost ($)</label>
+<input class="bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 font-mono text-xl font-semibold p-1" type="text" value="31,200,000"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Utilization %</label>
+<input class="bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 font-mono text-lg font-semibold p-1" type="text" value="82.5"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Rev/Emp ($)</label>
+<input class="bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 font-mono text-lg font-semibold p-1" type="text" value="136,000"/>
+</div>
+</div>
+<div class="flex flex-col gap-2 pt-4">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Avg Time to Fill (Days)</label>
+<input class="bg-surface-container-low border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 font-mono text-lg font-semibold p-1" type="text" value="28"/>
+</div>
+</div>
+<button class="mt-8 w-full purple-gradient text-white py-4 rounded-xl font-bold text-sm shadow-lg active:scale-95 transition-transform">
+                    Recalculate Impact
+                </button>
+<!-- Regional Breakdown (S1) -->
+<div class="mt-8 space-y-2">
+<div class="bg-surface-container-low p-4 rounded-xl border border-primary/20">
+<div class="flex items-center justify-between cursor-pointer">
+<span class="font-bold text-sm text-primary">North America</span>
+<span class="material-symbols-outlined text-sm">expand_less</span>
+</div>
+<div class="mt-4 grid grid-cols-3 gap-2 text-center border-t border-primary/10 pt-4">
+<div><p class="text-[8px] font-bold text-on-surface-variant uppercase">HC</p><p class="font-mono font-bold">210</p></div>
+<div><p class="text-[8px] font-bold text-on-surface-variant uppercase">Cost</p><p class="font-mono font-bold">$18.5M</p></div>
+<div><p class="text-[8px] font-bold text-on-surface-variant uppercase">Util</p><p class="font-mono font-bold">84%</p></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Scenario 2 (Editable) -->
+<div class="bg-surface-container-low rounded-3xl p-8 flex flex-col">
+<div class="mb-8">
+<span class="text-[10px] font-black tracking-[0.2em] text-on-surface-variant uppercase">Scenario 2 · Efficiency Model</span>
+<h2 class="text-3xl font-black mt-2 text-on-surface">Lean Operations</h2>
+</div>
+<div class="space-y-6 flex-1">
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Total Headcount</label>
+<input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 font-mono text-3xl font-semibold p-1" type="text" value="310"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Annual Cost ($)</label>
+<input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 font-mono text-xl font-semibold p-1" type="text" value="25,100,000"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Utilization %</label>
+<input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 font-mono text-lg font-semibold p-1" type="text" value="91.8"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Rev/Emp ($)</label>
+<input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 font-mono text-lg font-semibold p-1" type="text" value="158,000"/>
+</div>
+</div>
+<div class="flex flex-col gap-2 pt-4">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Avg Time to Fill (Days)</label>
+<input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 font-mono text-lg font-semibold p-1" type="text" value="42"/>
+</div>
+</div>
+<button class="mt-8 w-full purple-gradient text-white py-4 rounded-xl font-bold text-sm shadow-lg active:scale-95 transition-transform">
+                    Recalculate Impact
+                </button>
+<!-- Regional Breakdown (S2) -->
+<div class="mt-8 space-y-2">
+<div class="bg-surface-container p-4 rounded-xl">
+<div class="flex items-center justify-between cursor-pointer">
+<span class="font-bold text-sm">North America</span>
+<span class="material-symbols-outlined text-sm">expand_less</span>
+</div>
+<div class="mt-4 grid grid-cols-3 gap-2 text-center border-t border-outline-variant/10 pt-4">
+<div><p class="text-[8px] font-bold text-on-surface-variant uppercase">HC</p><p class="font-mono font-bold">160</p></div>
+<div><p class="text-[8px] font-bold text-on-surface-variant uppercase">Cost</p><p class="font-mono font-bold">$14M</p></div>
+<div><p class="text-[8px] font-bold text-on-surface-variant uppercase">Util</p><p class="font-mono font-bold">94%</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Comparison Summary -->
+<div class="bg-surface-container-lowest rounded-3xl p-8 shadow-[0px_32px_32px_rgba(11,28,48,0.04)] mb-12">
+<h3 class="text-xl font-black mb-10">Scenario Impact Summary</h3>
+<div class="space-y-12">
+<!-- S1 Comparison -->
+<div class="relative">
+<div class="flex justify-between items-end mb-4">
+<div>
+<span class="text-[10px] font-black tracking-widest uppercase text-primary">Comparison: Baseline vs Scenario 1</span>
+<p class="text-xs text-on-surface-variant mt-1">Growth strategy requires higher upfront investment.</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-fixed font-mono text-xs font-bold rounded-full">+11.1% Headcount</span>
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-fixed font-mono text-xs font-bold rounded-full">-17.6% Time to Fill</span>
+<span class="px-3 py-1 bg-error-container text-on-error-container font-mono text-xs font-bold rounded-full">-5.4% Utilization</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="h-full bg-slate-300 w-1/2"></div>
+<div class="h-full bg-primary w-[11%]"></div>
+</div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 w-[1px] h-20 bg-outline-variant opacity-30"></div>
+</div>
+<!-- S2 Comparison -->
+<div class="relative">
+<div class="flex justify-between items-end mb-4">
+<div>
+<span class="text-[10px] font-black tracking-widest uppercase text-on-surface">Comparison: Baseline vs Scenario 2</span>
+<p class="text-xs text-on-surface-variant mt-1">Lean operations prioritize margin over speed.</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-fixed font-mono text-xs font-bold rounded-full">+4.6% Utilization</span>
+<span class="px-3 py-1 bg-error-container text-on-error-container font-mono text-xs font-bold rounded-full">-4.2% Rev/Employee</span>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="h-full bg-slate-300 w-[40%]"></div>
+<div class="h-full bg-surface-container w-[10%]"></div>
+<div class="h-full bg-on-surface w-[8%] opacity-20"></div>
+</div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 w-[1px] h-20 bg-outline-variant opacity-30"></div>
+</div>
+</div>
+</div>
+<!-- AI Insights Glass Section -->
+<div class="glass-panel rounded-3xl p-8 border border-white/40 mb-20">
+<div class="flex gap-6">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="lightbulb">lightbulb</span>
+<h4 class="font-bold text-on-surface">Predictive Analysis Insight</h4>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-2xl">
+                        Scenario 1 shows a significant improvement in <span class="text-primary font-bold">Time to Fill</span> due to increased recruiting budget, but <span class="text-on-surface font-bold">Revenue per Employee</span> may lag by 3-4 months until new hires reach full ramp productivity. Consider a phased hiring approach to maintain utilization above 85%.
+                    </p>
+</div>
+<div class="w-48 h-24 rounded-2xl overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="abstract business data visualization with glowing purple lines and financial growth charts on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzUf5y2yTGNVc1u-KzbjLLKcGG2SqReeJP1cjFE3DRiyGJvKgYYvdH2EGhB2NZcA1tJqt7GyWBDnJZM33XAOiBbrFynNdt3O2sYW6deGBJM6wOMqJGE3d_D4GP56PEwMmyR34zGbIT20doEgWxRsqHmXOiai0vViDLdOr-JGguUNpTMNl1cufxS3wU9d83rpfGiBSZ9wBkB4siUzlkx0KCJoF4NiJObewoUBgwZA3-6_rF_RYRMZ8GOZJ9GKkqESE-qSKacvJgHFY"/>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

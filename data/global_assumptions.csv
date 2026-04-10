@@ -1,0 +1,4 @@
+parameter,value,unit,description
+working_hours_per_month,160,hours,Total working hours per agent per month
+shrinkage_rate,0.20,rate,Time lost to PTO meetings and training (20%)
+utilization_target,0.85,rate,Percentage of remaining time spent on tickets (85%)

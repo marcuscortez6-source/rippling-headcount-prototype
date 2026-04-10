@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9ff",
+                        "on-primary-fixed-variant": "#4500d8",
+                        "on-primary-container": "#f1ebff",
+                        "on-secondary-fixed": "#0b1c30",
+                        "tertiary-fixed-dim": "#7cd9ac",
+                        "tertiary-fixed": "#98f5c7",
+                        "primary-container": "#6c47ff",
+                        "on-tertiary-fixed-variant": "#005237",
+                        "surface-container-high": "#dde9ff",
+                        "tertiary-container": "#107b55",
+                        "on-surface-variant": "#484556",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#b7c7e2",
+                        "on-secondary-fixed-variant": "#38485e",
+                        "secondary-fixed": "#d3e3ff",
+                        "surface-variant": "#d3e3ff",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#56657d",
+                        "primary-fixed-dim": "#c9beff",
+                        "on-tertiary-fixed": "#002114",
+                        "primary-fixed": "#e6deff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#006041",
+                        "inverse-primary": "#c9beff",
+                        "surface-bright": "#f8f9ff",
+                        "secondary": "#505f76",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#1b0063",
+                        "on-tertiary-container": "#b0ffd6",
+                        "inverse-on-surface": "#ebf1ff",
+                        "primary": "#5323e6",
+                        "surface-container-low": "#eff4ff",
+                        "surface-dim": "#cbdbf6",
+                        "on-background": "#0b1c30",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#e6eeff",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "outline": "#797588",
+                        "on-surface": "#0b1c30",
+                        "secondary-container": "#d3e3ff",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#5e35f1",
+                        "inverse-surface": "#213146",
+                        "outline-variant": "#c9c3d9",
+                        "surface-container-highest": "#d3e3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-background text-on-background overflow-hidden h-screen flex">
+<!-- SideNavBar Component (Authority: JSON & Context) -->
+<aside class="bg-[#0b1c30] fixed left-0 top-0 h-full w-72 flex flex-col p-6 z-50">
+<!-- Brand Identity -->
+<div class="mb-10">
+<h1 class="text-xl font-bold tracking-tighter text-white uppercase">Predictive Architect</h1>
+<p class="text-slate-400 text-xs font-medium tracking-tight mt-1">Support Ops AI</p>
+</div>
+<!-- Global Assumptions (User Requested) -->
+<div class="mb-8">
+<div class="flex items-center gap-2 mb-4 px-2">
+<span class="material-symbols-outlined text-[#6C47FF] text-sm">settings_input_component</span>
+<h3 class="text-white text-xs font-bold uppercase tracking-widest">Global Assumptions</h3>
+</div>
+<div class="space-y-3 px-2">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-400">Working Hours</span>
+<span class="font-mono text-white">160 hrs/month</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-400">Shrinkage Rate</span>
+<span class="font-mono text-white">20%</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-400">Utilization</span>
+<span class="font-mono text-white">85%</span>
+</div>
+</div>
+</div>
+<!-- Current Roster Section (User Requested) -->
+<div class="mb-auto">
+<div class="flex items-center gap-2 mb-4 px-2">
+<span class="material-symbols-outlined text-[#6C47FF] text-sm">groups</span>
+<h3 class="text-white text-xs font-bold uppercase tracking-widest">Current Roster</h3>
+</div>
+<div class="overflow-hidden">
+<table class="w-full text-left text-[11px]">
+<thead class="text-slate-500 font-bold uppercase tracking-tighter border-b border-slate-800">
+<tr>
+<th class="pb-2">Region</th>
+<th class="pb-2 text-right">Agents</th>
+<th class="pb-2 text-right">AHT</th>
+</tr>
+</thead>
+<tbody class="text-slate-300">
+<tr class="hover:bg-slate-800/50 transition-colors">
+<td class="py-2">NAMER</td>
+<td class="py-2 text-right font-mono">100</td>
+<td class="py-2 text-right font-mono text-white">15min</td>
+</tr>
+<tr class="hover:bg-slate-800/50 transition-colors">
+<td class="py-2">EMEA</td>
+<td class="py-2 text-right font-mono">80</td>
+<td class="py-2 text-right font-mono text-white">18min</td>
+</tr>
+<tr class="hover:bg-slate-800/50 transition-colors">
+<td class="py-2">APAC</td>
+<td class="py-2 text-right font-mono">50</td>
+<td class="py-2 text-right font-mono text-white">10min</td>
+</tr>
+<tr class="hover:bg-slate-800/50 transition-colors">
+<td class="py-2">LATAM</td>
+<td class="py-2 text-right font-mono">30</td>
+<td class="py-2 text-right font-mono text-white">12min</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Footer Actions (JSON) -->
+<div class="pt-6 border-t border-slate-800 flex flex-col gap-2">
+<button class="flex items-center gap-3 px-3 py-2 text-slate-400 font-medium hover:bg-slate-800 hover:text-white transition-colors rounded-lg text-sm">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span>Settings</span>
+</button>
+<button class="flex items-center gap-3 px-3 py-2 text-slate-400 font-medium hover:bg-slate-800 hover:text-white transition-colors rounded-lg text-sm">
+<span class="material-symbols-outlined text-lg">help_outline</span>
+<span>Support</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-72 flex-1 flex flex-col relative bg-background h-full">
+<!-- TopNavBar Component (JSON) -->
+<nav class="fixed top-0 right-0 w-[calc(100%-18rem)] z-40 bg-[#f8f9ff]/70 backdrop-blur-xl flex justify-between items-center px-8 h-16">
+<div class="flex items-center gap-8">
+<span class="text-[#5323e6] font-['Inter'] font-semibold tracking-tight text-lg">Headcount Planner</span>
+<div class="flex items-center gap-6">
+<a class="text-[#5323e6] border-b-2 border-[#5323e6] pb-1 font-semibold tracking-tight transition-all" href="#">Scenarios</a>
+<a class="text-[#484556] hover:text-[#6C47FF] font-semibold tracking-tight transition-all" href="#">Impact Analysis</a>
+<a class="text-[#484556] hover:text-[#6C47FF] font-semibold tracking-tight transition-all" href="#">History</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container transition-colors rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container transition-colors rounded-full">
+<span class="material-symbols-outlined">history_edu</span>
+</button>
+</div>
+<button class="bg-gradient-to-br from-[#5323e6] to-[#6c47ff] text-white px-5 py-2 rounded-lg font-semibold tracking-tight active:scale-98 transition-all shadow-lg shadow-primary/10">
+                    Deploy Plan
+                </button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Operations Lead" class="w-full h-full object-cover" data-alt="professional headshot of an operations manager with a confident expression and blurred office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCekXx643aSPCzzLcEkZBFjDgiefpbnM2FjNS0ebwtumDeOa1l98Gq5hCsRvYNdyYy80rUoh5sqAjnGiZrXQAdkjs3jHuPFAybNVTOl32vUGN2SDyyn6m0Vj6NMG2u9cpaGZtnjVWr2i80tO8o9Cg7DErPT9xNa_Qr2MG7or6C9AMq3UNEjnwVyCia3I5-u6L8GMhELTUip7v_0JKsNJCfeYFIsvXLCJ6anvxU626xdhT8eGHYaDeHxKXppFXC1HG8M6ADJ5dZCp2Y"/>
+</div>
+</div>
+</nav>
+<!-- Centered Empty State (Canvas Content) -->
+<div class="flex-1 flex flex-col items-center justify-center p-8 mt-16">
+<div class="max-w-2xl w-full text-center mb-12">
+<div class="inline-flex items-center justify-center p-4 bg-primary/10 rounded-full mb-6">
+<span class="material-symbols-outlined text-[#5323e6] text-4xl" data-weight="fill">analytics</span>
+</div>
+<h2 class="text-5xl font-extrabold text-on-background tracking-tighter mb-4 leading-none">What would you like to plan?</h2>
+<p class="text-xl text-on-surface-variant font-medium tracking-tight">Ask about headcount, capacity, or run what-if scenarios with the Predictive Architect.</p>
+</div>
+<!-- Suggested Questions (Bento Pattern) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl w-full px-4">
+<button class="group p-6 bg-surface-container-low hover:bg-surface-container-highest transition-all rounded-xl text-left border border-transparent hover:border-outline-variant/30 active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[#5323e6] mb-3 block">search</span>
+<p class="text-on-surface font-semibold text-sm leading-snug">How many agents in EMEA?</p>
+</button>
+<button class="group p-6 bg-surface-container-low hover:bg-surface-container-highest transition-all rounded-xl text-left border border-transparent hover:border-outline-variant/30 active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[#5323e6] mb-3 block">trending_up</span>
+<p class="text-on-surface font-semibold text-sm leading-snug">Max capacity for NAMER?</p>
+</button>
+<button class="group p-6 bg-surface-container-low hover:bg-surface-container-highest transition-all rounded-xl text-left border border-transparent hover:border-outline-variant/30 active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-[#5323e6] mb-3 block">shutter_speed</span>
+<p class="text-on-surface font-semibold text-sm leading-snug">What if APAC volume increases 30%?</p>
+</button>
+</div>
+</div>
+<!-- Bottom Input Bar -->
+<div class="p-8 pt-0">
+<div class="max-w-4xl mx-auto">
+<div class="relative group">
+<div class="absolute inset-0 bg-[#5323e6]/5 blur-xl group-focus-within:bg-[#5323e6]/10 transition-all rounded-full"></div>
+<div class="relative bg-surface-container-lowest border-2 border-outline-variant/10 group-focus-within:border-[#5323e6] rounded-full p-2 pl-6 flex items-center shadow-xl shadow-on-secondary-fixed/5 transition-all">
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface font-medium placeholder:text-outline py-3" placeholder="Ask about headcount, capacity, or scenarios..." type="text"/>
+<button class="ml-2 w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-[#5323e6] to-[#6c47ff] text-white shadow-lg active:scale-90 transition-all">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex justify-center mt-4 gap-4">
+<span class="text-[10px] text-outline font-bold uppercase tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">bolt</span>
+                        AI Powered Insights
+                    </span>
+<span class="text-[10px] text-outline font-bold uppercase tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">security</span>
+                        Enterprise Secure
+                    </span>
+</div>
+</div>
+</div>
+<!-- Floating Decorative Glass Element -->
+<div class="absolute top-24 right-8 w-64 p-6 bg-white/70 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/50 hidden xl:block">
+<h4 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">Live Prediction</h4>
+<div class="flex items-center gap-3">
+<div class="flex flex-col">
+<span class="text-[10px] text-outline font-bold">EST. UTILIZATION</span>
+<span class="text-2xl font-mono font-bold text-[#107b55]">92.4%</span>
+</div>
+<div class="flex-1 h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[92%] h-full bg-[#107b55]"></div>
+</div>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-4 italic leading-relaxed">"APAC trend suggests a capacity deficit by Q3 if hiring is not accelerated."</p>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,4 @@
+region,active_agents,avg_handle_time_minutes
+NAMER,100,15
+EMEA,80,12
+APAC,50,10
