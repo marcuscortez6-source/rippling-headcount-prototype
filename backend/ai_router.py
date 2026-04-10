@@ -103,6 +103,7 @@ class HeadcountAgent:
         self.client = anthropic.Anthropic(api_key=key)
         self.conversation = ConversationState()
         self.model = os.getenv("HEADCOUNT_MODEL", "claude-haiku-4-5-20251001")
+        print(f"[HeadcountAgent] Using model: {self.model}, API key: {key[:12]}...")
 
     def _execute_tool(self, tool_name: str, tool_input: dict) -> dict:
         """Execute a tool and return structured result. This is where AI connects

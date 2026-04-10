@@ -70,7 +70,9 @@ def ask(req: AskRequest):
     try:
         result = agent.ask(req.question)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"{type(e).__name__}: {str(e)}")
     return AskResponse(
         response=result["response"],
         tool_called=result["tool_called"],
